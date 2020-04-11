@@ -1,6 +1,7 @@
 export const GET_INPUTVALUE = 'GET_INPUTVALUE';
 export const GET_DATA = 'GET_DATA';
 export const SET_DATA = 'SET_DATA';
+export const SET_NEW_CITY = 'SET_NEW_CITY';
 
 export function getInputvalue(payload){
     return{
@@ -19,6 +20,13 @@ export function getData(payload){
 export function setData(payload){
     return{
         type: SET_DATA,
+        payload: payload
+    }
+}
+
+export function setNewCity(payload){
+    return{
+        type: SET_NEW_CITY,
         payload: payload
     }
 }

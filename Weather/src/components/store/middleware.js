@@ -1,5 +1,5 @@
 import { GET_DATA } from './actions'
-import { setData } from './actions'
+import { setNewCity, setData } from './actions'
 
 export const usersMiddleware = store => next => action => {
 
@@ -10,7 +10,8 @@ export const usersMiddleware = store => next => action => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            store.dispatch(setData(data))
+            store.dispatch(setNewCity(data))
+            store.dispatch(setData())
         })
     }
     

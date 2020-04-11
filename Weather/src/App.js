@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './components/Form'
-import './App.css';
+import Table from './components/Table'
 
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
   return (
     <div className = "main">
       <Form />
+      <Table /> 
     </div>
   )
 }
