@@ -1,12 +1,14 @@
 import React from 'react'
+import Row from '../Row'
 import { useSelector } from 'react-redux'
 
 export default function Table(){
 
-    let data = useSelector(state=> state.data)
+    let data = useSelector(state=> state.data);
 
     return(
         <div>
+            {data.length === 0? '':
             <table>
                 <thead>
                     <tr>
@@ -24,21 +26,11 @@ export default function Table(){
                 </thead>
                 <tbody>
                     {data.map((element, index) => 
-                        <tr key = {index} index = {index}>
-                            <td>{element.city}</td>
-                            <td>{element.country}</td>
-                            <td>{element.localtime}</td>
-                            <td>{element.temperature}</td>
-                            <td>{element.feelslike}</td>
-                            <td>{element.weather_descriptions}</td>
-                            <td>{element.wind_speed}</td>
-                            <td>{element.wind_dir}</td>
-                            <td>{element.pressure}</td>
-                            <td>{element.humidity}</td>
-                        </tr>
+                        <Row element = {element} index = {index} key = {index} />
                     )}
                 </tbody>
             </table>
+            }
         </div>
     )
 }

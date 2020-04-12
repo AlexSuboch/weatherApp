@@ -1,4 +1,4 @@
-import {GET_INPUTVALUE, SET_DATA, SET_NEW_CITY} from './actions'
+import {GET_INPUTVALUE, SET_DATA, SET_NEW_CITY, SPLICE_DATA} from './actions'
 
 const initialState = {
     inputValue: '',
@@ -17,7 +17,8 @@ const initialState = {
         humidity: 0,
         feelslike: 0,
         is_day: '',
-    }
+    },
+    newData: '',
 }
 
 export function dataReducer(state = initialState, action) {
@@ -47,7 +48,8 @@ export function dataReducer(state = initialState, action) {
                     humidity: action.payload.current.humidity,
                     feelslike: action.payload.current.feelslike,
                     is_day: action.payload.current.is_day,
-                }
+                },
+                inputValue: ''
             }
 
         }
@@ -59,7 +61,16 @@ export function dataReducer(state = initialState, action) {
             }
         }
 
+
+
+        case SPLICE_DATA: {
+            
+            return{
+                ...state,
+                data: state.data.filter(element => element !== state.data[action.payload])
+            }
+        }
+
         default: return state
     }
-
 }
