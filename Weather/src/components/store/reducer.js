@@ -17,8 +17,7 @@ const initialState = {
         humidity: 0,
         feelslike: 0,
         is_day: '',
-    },
-    newData: '',
+    }
 }
 
 export function dataReducer(state = initialState, action) {
@@ -64,10 +63,9 @@ export function dataReducer(state = initialState, action) {
 
 
         case SPLICE_DATA: {
-            
             return{
                 ...state,
-                data: state.data.filter(element => element !== state.data[action.payload])
+                data: state.data.filter(element => element !== state.data[action.payload]),
             }
         }
 
